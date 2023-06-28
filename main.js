@@ -2,10 +2,16 @@ const cellElem = document.querySelectorAll('[data-cell]')
 const board = document.getElementById('board')
 const popup  = document.querySelector('.winning-popup')
 const restart = document.querySelector('button') 
+const Oscore = document.querySelector('.X')
+const Xscore = document.querySelector('.O')
 const x = 'x';
 const y = 'y';
 let XsWins = 0;
 let OsWins = 0;
+
+
+Xscore.innerHTML = `${XsWins}`;
+Oscore.innerHTML = `${OsWins}`;
 
 let turner;
 const combinations = [
@@ -96,6 +102,16 @@ function endGame(draw) {
     winnigMessageTextElement.innerText = '! Draw !'
   }else {
     winnigMessageTextElement.innerText = `${turner ? "O's Wins" : "X's Wins!" }`
+    // XsWins = turner ? XsWins + 1 : XsWins + 0;
+    // OsWins = turner ?  OsWins +  0 : OsWins + 1;
+
+    if(turner) {
+      OsWins += 1;
+      Oscore.innerHTML = `${OsWins}`
+    }else {
+      XsWins += 1;
+      Xscore.innerHTML = `${XsWins}`
+    }
   }
   popup.classList.add('show')
 }

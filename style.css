@@ -162,7 +162,9 @@
 
 
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
 }
 
@@ -177,7 +179,7 @@ body {
 
 .board {
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 100px);
   display: grid;
   justify-content: center;
   align-content: center;
@@ -307,4 +309,13 @@ body {
 
 .winning-popup.show {
   display: flex;
+}
+
+.scores {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+.scores div {
 }
